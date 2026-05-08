@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent WolfPack — Rejoins la Communauté eXp Realty</title>
+
+<!-- Wistia -->
+<script src="https://fast.wistia.com/player.js" async></script>
+<script src="https://fast.wistia.com/embed/b2uwwd3juo.js" async type="module"></script>
+<style>
+wistia-player[media-id='b2uwwd3juo']:not(:defined) {
+  background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/b2uwwd3juo/swatch');
+  display: block;
+  filter: blur(5px);
+  padding-top: 56.25%;
+}
+</style>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   CSS VARIABLES + RESET
+   ============================================================ */
+:root {
+  --gold: #E8C96A;
+  --gold-light: #F5E199;
+  --gold-dark: #C9973A;
+  --cobalt: #2563EB;
+  --cobalt-light: #60A5FA;
+  --cobalt-mid: #3B82F6;
+  --bg: #000000;
+  --bg-cobalt: #060D1A;
+  --bg-gold: #100D03;
+  --white: #FFFFFF;
+  --text-muted: rgba(255,255,255,0.58);
+  --grid-gold: rgba(232,201,106,0.10);
+  --grid-cobalt: rgba(59,130,246,0.08);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+
+a { text-decoration: none; color: inherit; }
+
+img { max-width: 100%; display: block; }
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+.gold-gradient-text {
+  background: linear-gradient(180deg, #F5E199 0%, #E8C96A 20%, #C9973A 45%, #E8C96A 60%, #F5E199 75%, #C9973A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 12px rgba(232,201,106,0.35));
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #fff 0%, #E8C96A 25%, #fff 45%, #60A5FA 60%, #fff 80%, #E8C96A 100%);
+  background-size: 280% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 5s linear infinite;
+}
+
+@keyframes shimmer {
+  from { background-position: 0% center; }
+  to { background-position: 280% center; }
+}
+
+.section-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--grid-gold) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-cobalt) 1px, transparent 1px);
+  background-size: 52px 52px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 32px;
+  box-sizing: border-box;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+@property --btn-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes btnSpin { to { --btn-angle: 360deg; } }
+
+.btn-cobalt {
+  position: relative;
+  display: inline-block;
+  padding: 18px 52px;
+  background: var(--cobalt);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 0;
+  box-shadow: 0 4px 20px rgba(37,99,235,0.45);
+  transition: transform 0.25s, box-shadow 0.25s;
+  text-align: center;
+}
+
+.btn-cobalt::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50px;
+  background: conic-gradient(from var(--btn-angle,0deg), transparent 0%, transparent 40%, rgba(96,165,250,0.80) 50%, transparent 60%, transparent 100%);
+  z-index: -1;
+  animation: btnSpin 3s linear infinite;
+}
+
+.btn-cobalt::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  background: var(--cobalt);
+  border-radius: 50px;
+  z-index: -1;
+  transition: background 0.25s;
+}
+
+.btn-cobalt:hover { transform: scale(1.04) translateY(-2px); box-shadow: 0 8px 32px rgba(37,99,235,0.60); }
+.btn-cobalt:hover::after { background: #1D4ED8; }
+
+.btn-cobalt span { position: relative; z-index: 1; }
+
+/* ============================================================
+   NAV
+   ============================================================ */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(4,5,8,0.80);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(232,201,106,0.14);
+  padding: 14px 0;
+}
+
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo img {
+  height: 44px;
+  width: auto;
+  filter: drop-shadow(0 0 8px rgba(232,201,106,0.45));
+  transition: filter 0.3s;
+}
+
+.nav-logo img:hover { filter: drop-shadow(0 0 14px rgba(232,201,106,0.75)); }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+#hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 30% 40%, rgba(59,130,246,0.22) 0%, transparent 55%),
+    radial-gradient(ellipse at 72% 30%, rgba(232,201,106,0.20) 0%, transparent 55%),
+    radial-gradient(ellipse at 55% 75%, rgba(59,130,246,0.14) 0%, transparent 50%),
+    #040812;
+  padding: 80px 0 0;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(37,99,235,0.12);
+  border: 1px solid rgba(96,165,250,0.30);
+  border-radius: 50px;
+  padding: 8px 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(96,165,250,0.85);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.hero-heading {
+  font-size: clamp(32px, 5vw, 58px);
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.hero-heading .gold { color: var(--gold); -webkit-text-fill-color: var(--gold); }
+
+.hero-sub {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  font-style: italic;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 36px;
+}
+
+.hero-cta-wrap {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.hero-watch-label {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.hero-watch-label .shimmer-text { font-style: italic; }
+
+.hero-video {
+  max-width: 820px;
+  margin: 0 auto;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(59,130,246,0.25);
+  box-shadow: 0 0 0 1px rgba(59,130,246,0.08), 0 24px 60px rgba(0,0,0,0.65);
+}
+
+.hero-video wistia-player { display: block; width: 100%; }
+
+.hero-cta-bottom {
+  text-align: center;
+  padding: 48px 0;
+}
+
+/* Fade du bas du hero */
+#hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 160px;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 60%, #000 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ============================================================
+   SECTION BASE
+   ============================================================ */
+section {
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  margin: 0;
+  padding: 80px 0;
+}
+
+section + section { margin-top: -1px; }
+
+/* ============================================================
+   SECTION TITRE OR — réutilisable
+   ============================================================ */
+.section-title {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-title h2 {
+  font-size: clamp(30px, 4.5vw, 50px);
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -0.8px;
+  line-height: 1.1;
+}
+
+/* ============================================================
+   HISTOIRES DE RÉUSSITE
+   ============================================================ */
+#success {
+  background:
+    radial-gradient(ellipse at 50% 15%, rgba(232,201,106,0.16) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 60%, rgba(59,130,246,0.14) 0%, transparent 50%),
+    #000;
+}
+
+.success-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px 40px;
+}
+
+.success-item { display: flex; flex-direction: column; gap: 12px; }
+
+.success-item img {
+  border-radius: 12px;
+  width: 85%;
+  margin: 0 auto;
+  transition: transform 0.35s, box-shadow 0.35s;
+}
+
+.success-item.gold img {
+  box-shadow: 0 0 0 1px rgba(232,201,106,0.30), 0 0 20px 5px rgba(232,201,106,0.20), 0 12px 32px rgba(0,0,0,0.55);
+}
+
+.success-item.cobalt img {
+  box-shadow: 0 0 0 1px rgba(59,130,246,0.30), 0 0 20px 5px rgba(59,130,246,0.20), 0 12px 32px rgba(0,0,0,0.55);
+}
+
+.success-item.gold img:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 0 0 1px rgba(232,201,106,0.55), 0 0 32px 8px rgba(232,201,106,0.32), 0 18px 40px rgba(0,0,0,0.65);
+}
+
+.success-item.cobalt img:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 0 0 1px rgba(96,165,250,0.55), 0 0 32px 8px rgba(59,130,246,0.32), 0 18px 40px rgba(0,0,0,0.65);
+}
+
+.success-caption {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.success-item.gold .success-caption { color: rgba(232,201,106,0.88); }
+.success-item.cobalt .success-caption { color: rgba(96,165,250,0.88); }
+
+/* ============================================================
+   TEAM SECTION
+   ============================================================ */
+.team-section {
+  padding: 64px 0;
+}
+
+.team-section.bg-gold {
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(232,201,106,0.14) 0%, transparent 60%),
+    #000;
+}
+
+.team-section.bg-cobalt {
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(59,130,246,0.14) 0%, transparent 60%),
+    #000;
+}
+
+.team-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.team-row.reverse { direction: rtl; }
+.team-row.reverse > * { direction: ltr; }
+
+.team-img {
+  position: relative;
+}
+
+.team-img img {
+  border-radius: 12px;
+  width: 100%;
+  transition: transform 0.4s, box-shadow 0.5s;
+}
+
+.team-img.gold img {
+  box-shadow: 0 0 0 1px rgba(232,201,106,0.22), 0 0 22px 5px rgba(232,201,106,0.18), 0 24px 48px rgba(0,0,0,0.50);
+}
+
+.team-img.cobalt img {
+  box-shadow: 0 0 0 1px rgba(59,130,246,0.22), 0 0 22px 5px rgba(59,130,246,0.18), 0 24px 48px rgba(0,0,0,0.50);
+}
+
+.team-img.gold img:hover {
+  transform: scale(1.03) translateY(-4px);
+  box-shadow: 0 0 0 1px rgba(232,201,106,0.42), 0 0 32px 8px rgba(232,201,106,0.30), 0 32px 64px rgba(0,0,0,0.55);
+}
+
+.team-img.cobalt img:hover {
+  transform: scale(1.03) translateY(-4px);
+  box-shadow: 0 0 0 1px rgba(96,165,250,0.45), 0 0 32px 8px rgba(59,130,246,0.30), 0 32px 64px rgba(0,0,0,0.55);
+}
+
+/* Comm card */
+.comm-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  padding: 36px;
+  transition: transform 0.4s, box-shadow 0.4s, border-color 0.4s;
+}
+
+.comm-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(232,201,106,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232,201,106,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, black 0%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, black 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 16px;
+}
+
+.comm-card > * { position: relative; z-index: 1; }
+
+.comm-card.gold {
+  background: linear-gradient(160deg, #100D03 0%, #1C1608 50%, #100D03 100%);
+  border: 1px solid rgba(232,201,106,0.30);
+  box-shadow: 0 0 0 1px rgba(232,201,106,0.10), 0 0 40px 8px rgba(232,201,106,0.06), 0 30px 80px rgba(0,0,0,0.60), inset 0 1px 0 rgba(232,201,106,0.12);
+}
+
+.comm-card.cobalt {
+  background: linear-gradient(160deg, #060D1A 0%, #0C1628 50%, #060D1A 100%);
+  border: 1px solid rgba(59,130,246,0.30);
+  box-shadow: 0 0 0 1px rgba(59,130,246,0.10), 0 0 40px 8px rgba(59,130,246,0.06), 0 30px 80px rgba(0,0,0,0.60), inset 0 1px 0 rgba(96,165,250,0.10);
+}
+
+.comm-card.gold:hover {
+  transform: translateY(-6px);
+  border-color: rgba(232,201,106,0.55);
+}
+
+.comm-card.cobalt:hover {
+  transform: translateY(-6px);
+  border-color: rgba(96,165,250,0.55);
+}
+
+.card-tag {
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+}
+
+.gold .card-tag { color: rgba(232,201,106,0.80); border-bottom: 1px solid rgba(232,201,106,0.18); }
+.cobalt .card-tag { color: rgba(96,165,250,0.85); border-bottom: 1px solid rgba(59,130,246,0.18); }
+
+.card-name {
+  font-size: 24px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 16px;
+  letter-spacing: -0.3px;
+  display: block;
+}
+
+.gold .card-name { text-shadow: 0 0 28px rgba(232,201,106,0.22); }
+.cobalt .card-name { text-shadow: 0 0 28px rgba(59,130,246,0.22); }
+
+.card-bio {
+  display: block;
+  font-size: 14px;
+  line-height: 1.80;
+  color: rgba(255,255,255,0.60);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+
+.gold .card-bio { background: rgba(232,201,106,0.04); border: 1px solid rgba(232,201,106,0.12); }
+.cobalt .card-bio { background: rgba(59,130,246,0.04); border: 1px solid rgba(59,130,246,0.12); }
+
+.card-bullet {
+  display: block;
+  font-size: 13px;
+  color: rgba(255,255,255,0.88);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 6px 0;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.gold .card-bullet { background: rgba(232,201,106,0.06); border: 1px solid rgba(232,201,106,0.14); }
+.cobalt .card-bullet { background: rgba(59,130,246,0.06); border: 1px solid rgba(59,130,246,0.14); }
+
+/* Mike spinning border */
+@property --angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+@keyframes spinCobalt { to { --angle: 360deg; } }
+
+.comm-card.mike-spin::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 16px;
+  background: conic-gradient(from var(--angle,0deg), transparent 0%, transparent 40%, rgba(96,165,250,0.70) 50%, transparent 60%, transparent 100%);
+  z-index: 0;
+  animation: spinCobalt 4s linear infinite;
+  mask-image: none;
+  -webkit-mask-image: none;
+}
+
+.comm-card.mike-spin::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  background: linear-gradient(160deg, #060D1A 0%, #0C1628 50%, #060D1A 100%);
+  border-radius: 15px;
+  z-index: 1;
+}
+
+.mike-spin > * { z-index: 2; }
+
+/* ============================================================
+   LOGOS SECTION
+   ============================================================ */
+#logos {
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(232,201,106,0.10) 0%, transparent 60%),
+    #000;
+  padding: 64px 0;
+}
+
+.logos-heading {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin-bottom: 36px;
+}
+
+.logos-track-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.logos-track-wrap::before,
+.logos-track-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.logos-track-wrap::before { left: 0; background: linear-gradient(to right, #000, transparent); }
+.logos-track-wrap::after { right: 0; background: linear-gradient(to left, #000, transparent); }
+
+/* ============================================================
+   TÉMOIGNAGES
+   ============================================================ */
+#testimonials {
+  background:
+    radial-gradient(ellipse at 50% 20%, rgba(232,201,106,0.18) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(59,130,246,0.14) 0%, transparent 50%),
+    #000;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.video-card { display: flex; flex-direction: column; gap: 12px; }
+
+.video-card figure {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(59,130,246,0.22);
+  box-shadow: 0 0 0 1px rgba(59,130,246,0.07), 0 16px 40px rgba(0,0,0,0.55);
+  transition: transform 0.35s, box-shadow 0.35s, border-color 0.35s;
+}
+
+.video-card figure:hover {
+  transform: translateY(-5px);
+  border-color: rgba(96,165,250,0.50);
+  box-shadow: 0 0 0 1px rgba(59,130,246,0.16), 0 0 28px 5px rgba(59,130,246,0.10), 0 24px 50px rgba(0,0,0,0.65);
+}
+
+.video-thumb {
+  width: 100%;
+  padding-bottom: 56.25%;
+  background-size: cover;
+  background-position: center;
+}
+
+.video-caption {
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.80);
+  text-align: center;
+}
+
+/* ============================================================
+   RESOURCES
+   ============================================================ */
+#resources {
+  background:
+    radial-gradient(ellipse at 50% 20%, rgba(232,201,106,0.14) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 80%, rgba(59,130,246,0.12) 0%, transparent 50%),
+    #000;
+}
+
+.resources-labels {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.resource-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgba(96,165,250,0.75);
+  text-align: center;
+}
+
+.resources-videos {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.resource-video figure {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(59,130,246,0.20);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.50);
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.resource-video figure:hover {
+  transform: translateY(-4px);
+  border-color: rgba(96,165,250,0.45);
+}
+
+/* ============================================================
+   FORMATION
+   ============================================================ */
+#formation {
+  background:
+    radial-gradient(ellipse at 50% 20%, rgba(59,130,246,0.16) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 80%, rgba(232,201,106,0.14) 0%, transparent 50%),
+    #000;
+}
+
+.formation-heading {
+  text-align: center;
+  font-size: clamp(22px, 3.5vw, 36px);
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.formation-sub {
+  text-align: center;
+  font-size: 15px;
+  color: var(--text-muted);
+  max-width: 680px;
+  margin: 0 auto 48px;
+  line-height: 1.7;
+}
+
+.formation-images {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.formation-images img {
+  border-radius: 12px;
+  width: 100%;
+}
+
+.formation-img-1 { box-shadow: 0 0 0 1px rgba(255,60,130,0.40), 0 0 22px 6px rgba(255,60,130,0.35), 0 8px 24px rgba(0,0,0,0.55); }
+.formation-img-2 { box-shadow: 0 0 0 1px rgba(59,130,246,0.40), 0 0 22px 6px rgba(59,130,246,0.32), 0 8px 24px rgba(0,0,0,0.55); }
+.formation-img-3 { box-shadow: 0 0 0 1px rgba(180,100,255,0.40), 0 0 22px 6px rgba(180,100,255,0.30), 0 0 50px 12px rgba(232,201,106,0.18), 0 8px 24px rgba(0,0,0,0.55); }
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+#faq {
+  background:
+    radial-gradient(ellipse at 50% 30%, rgba(59,130,246,0.12) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 75%, rgba(232,201,106,0.08) 0%, transparent 50%),
+    #000;
+}
+
+.faq-list { display: flex; flex-direction: column; gap: 12px; max-width: 780px; margin: 0 auto; }
+
+.faq-item {
+  background: #070E1C;
+  border: 1px solid rgba(59,130,246,0.28);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+
+.faq-item:hover { border-color: rgba(96,165,250,0.50); }
+
+.faq-q {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 24px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.faq-icon {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  border-radius: 50%;
+  background: rgba(59,130,246,0.12);
+  border: 1px solid rgba(59,130,246,0.30);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--cobalt-light);
+  font-weight: 700;
+  transition: transform 0.3s;
+  flex-shrink: 0;
+}
+
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+
+.faq-q h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  border-top: 0px solid rgba(59,130,246,0.12);
+}
+
+.faq-item.open .faq-a {
+  max-height: 400px;
+  border-top-width: 1px;
+}
+
+.faq-a p {
+  font-size: 14px;
+  line-height: 1.80;
+  color: rgba(255,255,255,0.62);
+  padding: 16px 24px;
+  margin: 0;
+}
+
+/* ============================================================
+   CTA FINAL
+   ============================================================ */
+#cta-final {
+  background:
+    radial-gradient(ellipse at 30% 50%, rgba(59,130,246,0.14) 0%, transparent 55%),
+    radial-gradient(ellipse at 70% 45%, rgba(232,201,106,0.14) 0%, transparent 55%),
+    #000;
+  text-align: center;
+  padding: 100px 0;
+}
+
+.cta-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: rgba(96,165,250,0.75);
+  margin-bottom: 12px;
+}
+
+.cta-heading {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  margin-bottom: 16px;
+}
+
+.cta-sub {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  background: #000;
+  border-top: 1px solid rgba(232,201,106,0.10);
+  padding: 40px 0 28px;
+  text-align: center;
+}
+
+footer img {
+  height: 32px;
+  margin: 0 auto 20px;
+  opacity: 0.45;
+  filter: brightness(0.8);
+}
+
+footer p {
+  font-size: 11px;
+  color: rgba(255,255,255,0.22);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto 8px;
+}
+
+footer .disclaimer {
+  font-size: 10px;
+  color: rgba(255,255,255,0.12);
+  text-transform: none;
+  letter-spacing: 0;
+  max-width: 560px;
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up { animation: fadeUp 0.7s ease both; }
+.fade-up-d1 { animation-delay: 0.1s; }
+.fade-up-d2 { animation-delay: 0.2s; }
+.fade-up-d3 { animation-delay: 0.3s; }
+.fade-up-d4 { animation-delay: 0.4s; }
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media (max-width: 767px) {
+  .inner { padding: 0 16px; }
+  section { padding: 56px 0; }
+
+  .nav-inner { padding: 0 16px; }
+  .nav-logo img { height: 36px; }
+
+  .hero-heading { font-size: 24px; letter-spacing: -0.3px; }
+  .hero-sub { font-size: 13px; }
+
+  .btn-cobalt { padding: 16px 32px; font-size: 13px; width: 100%; max-width: 340px; display: block; margin: 0 auto; }
+
+  .success-grid { grid-template-columns: 1fr; gap: 28px; }
+  .success-item img { width: 100%; }
+
+  .team-row { grid-template-columns: 1fr; gap: 24px; }
+  .team-row.reverse { direction: ltr; }
+  .comm-card { padding: 24px; }
+  .card-name { font-size: 20px; }
+
+  .video-grid { grid-template-columns: 1fr; gap: 20px; }
+
+  .resources-labels { grid-template-columns: 1fr 1fr; }
+  .resources-videos { grid-template-columns: 1fr 1fr; gap: 10px; }
+
+  .formation-images { padding: 0 16px; }
+
+  .faq-q h4 { font-size: 13px; }
+
+  #cta-final { padding: 64px 0; }
+  .cta-heading { font-size: 24px; }
+
+  #hero::after { height: 80px; }
+  #hero { padding-top: 48px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="https://assets.cdn.filesafe.space/sa0dwtpUC0WQ1kzZhjsv/media/68090d72e79dda276a8eac62.png" alt="Agent WolfPack">
+    </a>
+    <a href="https://goagentwolfpack.com/book" class="btn-cobalt" style="padding: 12px 28px; font-size: 12px;">
+      <span>📆 Réserve Ton Appel</span>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="section-grid"></div>
+  <div class="inner" style="text-align:center;">
+    <div class="fade-up">
+      <div class="hero-badge">🚨 Courtiers Immobiliers 🚨</div>
+    </div>
+    <h1 class="hero-heading fade-up fade-up-d1">
+      <em>Associez-vous <span class="gold">GRATUITEMENT</span> à plus de 3000 courtiers immobiliers dans le Wolf Pack</em>
+    </h1>
+    <p class="hero-sub fade-up fade-up-d2"><em>AUCUN coût supplémentaire ni partage de commission additionnel</em></p>
+
+    <div class="hero-cta-wrap fade-up fade-up-d2">
+      <a href="https://goagentwolfpack.com/book" class="btn-cobalt"><span>📆 Réserve Ton Appel Ici</span></a>
+    </div>
+
+    <div class="hero-watch-label fade-up fade-up-d3">
+      <span class="shimmer-text" style="font-weight:700; letter-spacing:3px; text-transform:uppercase; font-size:13px;">👇 Regarder Avant De Réserver 👇</span>
+    </div>
+
+    <div class="hero-video fade-up fade-up-d4">
+      <wistia-player media-id="b2uwwd3juo" aspect="1.7777777777777777" autoplay muted></wistia-player>
+    </div>
+
+    <div class="hero-cta-bottom fade-up" style="animation-delay:0.5s;">
+      <a href="https://goagentwolfpack.com/book" class="btn-cobalt"><span>📆 Réserve Ton Appel Ici</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- HISTOIRES DE RÉUSSITE -->
+<section id="success">
+  <div class="section-grid"></div>
+  <div class="inner">
+    <div class="section-title">
+      <h2 class="gold-gradient-text">Quelques histoires de réussite</h2>
+    </div>
+    <div class="success-grid">
+      <div class="success-item gold">
+        <img src="https://assets.cdn.filesafe.space/sa0dwtpUC0WQ1kzZhjsv/media/69ea479c0d66f2a665965d05.png" alt="500k sans prospection">
+        <p class="success-caption">Il faisait 500 000$ avec la prospection... aujourd'hui SANS</p>
+      </div>
+      <div class="success-item cobalt">
+        <img src="https://assets.cdn.filesafe.space/sa0dwtpUC0WQ1kzZhjsv/media/69ea479c0d66f2a665965d00.png" alt="75 transactions">
+        <p class="success-caption">75 transactions grâce aux réseaux sociaux</p>
+      </div>
+      <div class="success-item cobalt">
+        <img src="https://assets.cdn.filesafe.space/sa0dwtpUC0WQ1kzZhjsv/media/69ea479c6588a29ac2b48164.png" alt="double production">
+        <p class="success-caption">De 25 à 43 transactions, il a doublé sa production</p>
+      </div>
+      <div class="success-item gold">
+        <img src="https://assets.cdn.filesafe.space/sa0dwtpUC0WQ1kzZhjsv/media/69ea479cdddb92342c17d2d4.png" alt="39 transactions">
+        <p class="success-caption">39 transactions dès sa première année grâce à Facebook Ads</p>
+      </div>
+      <div class="success-item gold">
+        <img src="https://assets.cdn.filesafe.space/sa0dwtpUC0WQ1kzZhjsv/media/69ea479ca48992f689f02c8c.png" alt="26 transactions">
+        <p class="success-caption">De 1 à 26 transactions en 12 mois</p>
+      </div>
+      <div class="success-item cobalt">
+        <img src="https://assets.cdn.filesafe.space/sa0dwtpUC0WQ1kzZhjsv/media/69ea479c6588a29ac2b48162.png" alt="équipe RE/MAX">
+        <p class="success-caption">Équipe Top de 28 courtiers RE/MAX a joint les rangs d'eXp Realty &amp; le WolfPack</p>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:48px;">
+      <a href="https://goagentwolfpack.com/book" class="btn-cobalt"><span>📆 Réserve Ton Appel</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM HEADING -->
+<section style="padding: 64px 0 0; background:#000;">
+  <div class="section-grid"></div>
+  <div class="inner">
+    <div class="section-title">
+      <h2 class="gold-gradient-text">Tes futurs partenaires d'affaires t'attendent</h2>
+    </div>
+  </div>
+</section>
+
+<!-- EMILE — cobalt -->
+<section class="team-section bg-cobalt">
+  <div class="section-grid"></div>
+  <div class="inner">
+    <div class="team-row">
+      <div class="comm-card cobalt">
+        <span class="card-tag">Rencontre</span>
+        <span class="card-name">Emile Moussa</span>
+        <span class="card-bio">J'ai joint le WolfPack chez eXp Realty après avoir eu une mauvaise expérience dans une autre communauté d'eXp. J'ai dû quitter l'agence 6 mois afin de faire le changement de communauté. Mon engagement est de toujours chercher à aider les courtiers qui me joignent dans l'agence du mieux que je peux.</span>
+        <span class="card-bullet">✅ 4 ans + d'expérience en courtage immobilier</span>
+        <span class="card-bullet">✅ Expert en systèmes et en création de contenu</span>
+        <span class="card-bullet">✅ Aide les courtiers à systématiser leurs business et devenir auto-suffisants</span>
+      </div>
+      <div class="team-img cobalt">
+        <img src="https://assets.cdn.filesafe.space/sa0dwtpUC0WQ1kzZhjsv/media/69212058090c4a84201c4653.png" alt="Emile Moussa">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MATHIEU — or -->
+<section class="team-section bg-gold">
+  <div class="section-grid"></div>
+  <div class="inner">
+    <div class="team-row">
+      <div class="team-img gold">
+        <img src="https://assets.cdn.filesafe.space/sa0dwtpUC0WQ1kzZhjsv/media/68c7783f34fadb160c4e9387.webp" alt="Mathieu Lévesque">
+      </div>
+      <div class="comm-card gold">
+        <span class="card-tag">Rencontre</span>
+        <span class="card-name">Mathieu Lévesque</span>
+        <span class="card-bio">À la tête du WolfPack au Québec, Mathieu se démarque par son engagement personnel envers chacun des courtiers. Axé sur la discipline, Mathieu est sans aucun doute un avantage pour ton développement d'entreprise et personnel.</span>
+        <span class="card-bullet">✅ 9 ans + d'expérience en courtage immobilier</span>
+        <span class="card-bullet">✅ Expert en Génération de Leads Internet</span>
+        <span class="card-bullet">✅ A aidé plus de 100 Courtiers à Générer des Prospects</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MIKE — cobalt spin -->
+<section class="team-section bg-cobalt">
+  <div class="section-grid"></div>
+  <div class="inner">
+    <div class="team-row">
+      <div class="comm-card cobalt mike-spin">
+        <span class="card-tag">Rencontre</span>
+        <span class="card-name">Mike Sherrard</span>
+        <span class="card-bio">Co-Fondateur du WolfPack et anciennement top producteur à Calgary. Il est maintenant le YouTuber qui a aidé plus de 6000 courtiers immobiliers internationalement à augmenter leurs revenus.</span>
+        <span class="card-bullet">✅ Chaîne YouTube avec plus de 114,000 abonnés</span>
+        <span class="card-bullet">✅ Leader des Records chez eXp Realty</span>
+        <span class="card-bullet">✅ Attracteur #1 chez eXp Realty mondialement</span>
+      </div>
+      <div class="team-img cobalt">
+        <img src="https://assets.cdn.filesafe.space/sa0dwtpUC0WQ1kzZhjsv/media/692251a36652aa4f2af22dce.webp" alt="Mike Sherrard">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEBASTIEN — or -->
+<section class="team-section bg-gold">
+  <div class="section-grid"></div>
+  <div class="inner">
+    <div class="team-row">
+      <div class="team-img gold">
+        <img src="https://assets.cdn.filesafe.space/sa0dwtpUC0WQ1kzZhjsv/media/69dd69cee34cc263fb7ffbe7.png" alt="Sebastien Terrisse">
+      </div>
+      <div class="comm-card gold">
+        <span class="card-tag">Rencontre</span>
+        <span class="card-name">Sebastien Terrisse</span>
+        <span class="card-bio">Avec plusieurs années d'expérience sur le terrain et une spécialisation en mise en marché, Sebastien se démarque par son aide en développement d'affaires. Il sait exactement où aller et quoi faire lorsqu'un client le contacte.</span>
+        <span class="card-bullet">✅ Spécialiste en mise en marché</span>
+        <span class="card-bullet">✅ Expert en développement d'affaires</span>
+        <span class="card-bullet">✅ Arme redoutable pour les mandats de ventes</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA MID -->
+<section style="background:#000; padding:60px 0; text-align:center;">
+  <div class="section-grid"></div>
+  <div class="inner">
+    <p class="cta-label">es-tu prêt à faire le saut?</p>
+    <h2 class="cta-heading shimmer-text">Change le fil de ton entreprise aujourd'hui!</h2>
+    <p class="cta-sub">Aucun contrat et split de commissions additionnels avec la communauté du WolfPack</p>
+    <a href="https://goagentwolfpack.com/book" class="btn-cobalt"><span>📆 Réserve Ton Appel Ici</span></a>
+  </div>
+</section>
+
+<!-- TÉMOIGNAGES -->
+<section id="testimonials">
+  <div class="section-grid"></div>
+  <div class="inner">
+    <div class="section-title">
+      <h2 class="gold-gradient-text" style="font-style:italic;">Ce Que Nos Courtiers Disent</h2>
+    </div>
+    <div class="video-grid">
+      <div class="video-card">
+        <figure>
+          <div class="video-thumb" style="background-image:url('https://img.youtube.com/vi/MYnyh8wkyR0/maxresdefault.jpg')"></div>
+        </figure>
+        <p class="video-caption">Mon Témoignage Personnel</p>
+      </div>
+      <div class="video-card">
+        <figure>
+          <div class="video-thumb" style="background-image:url('https://i.vimeocdn.com/video/1837071980-a9e866c1af3b3a34b2683b350ef0ff91a777043b9c6629991d86b6c5bdfc9127-d_1280.jpg')"></div>
+        </figure>
+        <p class="video-caption">L'Expérience d'un Nouveau Courtier</p>
+      </div>
+      <div class="video-card">
+        <figure>
+          <div class="video-thumb" style="background-image:url('https://img.youtube.com/vi/pzcAx-yMot0/maxresdefault.jpg')"></div>
+        </figure>
+        <p class="video-caption">Top Productrice Quitte Via Capitale Après 14 Ans</p>
+      </div>
+      <div class="video-card">
+        <figure>
+          <div class="video-thumb" style="background-image:url('https://i.vimeocdn.com/video/1918462319-d5b2e3fae475b4e37b6dd42a9b9fc0465aba39a47800522254ce99b72490f335-d_1280.jpg')"></div>
+        </figure>
+        <p class="video-caption">Anciennement Royal LePage - Plus de 6 Chiffres</p>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:48px;">
+      <a href="https://goagentwolfpack.com/book" class="btn-cobalt"><span>📆 Réserve Ton Appel</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- RESSOURCES -->
+<section id="resources">
+  <div class="section-grid"></div>
+  <div class="inner">
+    <div class="section-title">
+      <h2 class="gold-gradient-text" style="font-style:italic;">Quelques Ressources Utiles</h2>
+    </div>
+    <div class="resources-labels">
+      <div class="resource-label">Quitté eXp et Revenu</div>
+      <div class="resource-label">Stratégie FB Ads</div>
+      <div class="resource-label">Devenir Courtier</div>
+      <div class="resource-label">RE/MAX vs eXp</div>
+      <div class="resource-label">100k Ta 1re Année</div>
+    </div>
+    <div class="resources-videos">
+      <div class="resource-video"><figure><div class="video-thumb" style="background-image:url('https://img.youtube.com/vi/XotSCykyo58/maxresdefault.jpg')"></div></figure></div>
+      <div class="resource-video"><figure><div class="video-thumb" style="background-image:url('https://img.youtube.com/vi/Eg2Nyrj-C_0/maxresdefault.jpg')"></div></figure></div>
+      <div class="resource-video"><figure><div class="video-thumb" style="background-image:url('https://img.youtube.com/vi/8k7YMJ77Fyk/maxresdefault.jpg')"></div></figure></div>
+      <div class="resource-video"><figure><div class="video-thumb" style="background-image:url('https://img.youtube.com/vi/IbuTRS0p7fo/maxresdefault.jpg')"></div></figure></div>
+      <div class="resource-video"><figure><div class="video-thumb" style="background-image:url('https://img.youtube.com/vi/4gV0xagMhR0/maxresdefault.jpg')"></div></figure></div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMATION -->
+<section id="formation">
+  <div class="section-grid"></div>
+  <div class="inner">
+    <h2 class="formation-heading shimmer-text">Obtenez un accès <strong>GRATUIT</strong> à la meilleure formation sur les médias sociaux et l'intelligence artificielle pour faire monter en flèche votre production</h2>
+    <p class="formation-sub">Nos stratégies ont été testées et éprouvées dans le monde entier pour attirer des clients à grande échelle sur toutes les plateformes</p>
+    <div class="formation-images">
+      <img class="formation-img-1" src="https://assets.cdn.filesafe.space/sa0dwtpUC0WQ1kzZhjsv/media/ceec1cbd-1a7e-44f6-b5c3-78ae18353946.png" alt="Social Agent Academy Pro">
+      <img class="formation-img-2" src="https://assets.cdn.filesafe.space/sa0dwtpUC0WQ1kzZhjsv/media/69b1d8aebfc81f8a9d9573ed.png" alt="AI Agent Accelerator">
+      <img class="formation-img-3" src="https://assets.cdn.filesafe.space/sa0dwtpUC0WQ1kzZhjsv/media/69b1d8f057249b727843a5f7.png" alt="Master Agent">
+    </div>
+    <div style="text-align:center; margin-top:48px;">
+      <a href="https://goagentwolfpack.com/book" class="btn-cobalt"><span>📆 Réserve Ton Appel</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-grid"></div>
+  <div class="inner">
+    <div class="section-title">
+      <h2 class="gold-gradient-text" style="font-style:italic;">Questions Fréquentes</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <div class="faq-icon">+</div>
+          <h4>Pourquoi devrais-je choisir un parrain en joignant l'agence eXp Realty?</h4>
+        </div>
+        <div class="faq-a">
+          <p>Malgré qu'il ne soit pas obligatoire de choisir un parrain, décider d'en avoir un vous permettra d'obtenir davantage de valeur pour vous aider à effectuer plus de transactions immobilières. Vous ne choisissez pas seulement 1 parrain, mais bien une lignée de partenaires qui ont votre succès à coeur et souhaitent vous équiper avec le plus d'outils ou de services possibles afin que vous explosez votre carrière.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <div class="faq-icon">+</div>
+          <h4>Suis-je obligé de recruter des courtiers dans l'agence?</h4>
+        </div>
+        <div class="faq-a">
+          <p>Absolument pas. Malgré qu'il y ait des communautés dans l'agence qui essaient d'encourager le recrutement agressif, ce n'est pas dans nos valeurs dans le WolfPack. Nous croyons que si nous vous aidons à briller dans vos transactions, vous deviendrez un leader naturellement qui attirera les courtiers vers vous.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <div class="faq-icon">+</div>
+          <h4>Quels sont les frais chez eXp Realty?</h4>
+        </div>
+        <div class="faq-a">
+          <p>- 199$ (+tax) le premier mois pour vous activer dans l'agence<br>- 139$ (+tax) chaque mois après le premier<br>- 29$ (+tax) par transaction pour évaluation de dossier par un DA<br>- 30$ (+tax) par mois pour accès à JLR (sur demande, facultatif)<br>- 35$ (+tax) par transaction pour assistance virtuelle pour la GED (sur demande)<br>- 20% par transaction jusqu'à concurrence de 80,000$ de revenu, suite à cela 285$ (+tax) pour 20 transactions</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <div class="faq-icon">+</div>
+          <h4>Je dois payer plus pour joindre le WolfPack?</h4>
+        </div>
+        <div class="faq-a">
+          <p>Non, lorsque tu me joins et me choisis en tant que parrain dans l'agence, tu obtiens par défaut tous les avantages du WolfPack gratuitement.</p>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:48px;">
+      <a href="https://goagentwolfpack.com/book" class="btn-cobalt"><span>📆 Réserve Ton Appel Ici</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="cta-final">
+  <div class="section-grid"></div>
+  <div class="inner">
+    <p class="cta-label">es-tu prêt à faire le saut?</p>
+    <h2 class="cta-heading shimmer-text">Change le fil de ton entreprise aujourd'hui!</h2>
+    <p class="cta-sub">Aucun contrat et split de commissions additionnels avec la communauté du WolfPack</p>
+    <a href="https://goagentwolfpack.com/book" class="btn-cobalt"><span>📆 Réserve Ton Appel Ici</span></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="https://assets.cdn.filesafe.space/sa0dwtpUC0WQ1kzZhjsv/media/68090d72983b2a365fbeb20f.png" alt="Agent WolfPack">
+  <p>Copyright © 2026 | Terms of Service | Privacy Policy</p>
+  <p class="disclaimer">PAS AFFILIÉ À FACEBOOK™ : Ce site n'est pas associé au site web Facebook™ ni à Facebook Inc. De plus, ce site n'est en aucun cas approuvé par Facebook™. FACEBOOK™ est une marque déposée de FACEBOOK™, Inc.</p>
+</footer>
+
+<script>
+function toggleFaq(el) {
+  const item = el.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// Fade-up on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.success-item, .team-row, .video-card, .resource-video, .faq-item').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(24px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
