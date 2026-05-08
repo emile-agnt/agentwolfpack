@@ -1286,26 +1286,3 @@ document.querySelectorAll('.success-item, .team-row, .video-card, .resource-vide
 </script>
 </body>
 </html>
-
-/* ── WISTIA — 3D effect + cobalt blur ───────────────────── */
-.hero-video {
-  position: relative !important;
-  transform: perspective(1200px) rotateX(2deg) !important;
-  transform-origin: center bottom !important;
-  transition: transform 0.5s ease !important;
-}
-.hero-video:hover {
-  transform: perspective(1200px) rotateX(0deg) !important;
-}
-.hero-video::before {
-  content: '' !important;
-  position: absolute !important;
-  inset: -20px -30px !important;
-  background:
-    radial-gradient(ellipse at 30% 60%, rgba(37,99,235,0.45) 0%, transparent 55%),
-    radial-gradient(ellipse at 70% 40%, rgba(59,130,246,0.30) 0%, transparent 50%) !important;
-  filter: blur(30px) !important;
-  z-index: -1 !important;
-  border-radius: 30px !important;
-  pointer-events: none !important;
-}
