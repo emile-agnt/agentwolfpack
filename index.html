@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Agent WolfPack — Rejoins la Communauté eXp Realty</title>
+<link rel="icon" type="image/png" href="https://assets.cdn.filesafe.space/sa0dwtpUC0WQ1kzZhjsv/media/68090d72983b2a365fbeb20f.png">
+<link rel="apple-touch-icon" href="https://assets.cdn.filesafe.space/sa0dwtpUC0WQ1kzZhjsv/media/68090d72983b2a365fbeb20f.png">
+<meta property="og:title" content="Agent WolfPack — Rejoins la Communauté eXp Realty">
+<meta property="og:description" content="Associez-vous GRATUITEMENT à plus de 3000 courtiers immobiliers dans le Wolf Pack.">
+<meta property="og:image" content="https://assets.cdn.filesafe.space/sa0dwtpUC0WQ1kzZhjsv/media/68090d72e79dda276a8eac62.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://assets.cdn.filesafe.space/sa0dwtpUC0WQ1kzZhjsv/media/68090d72e79dda276a8eac62.png">
 
 <!-- Wistia -->
 <script src="https://fast.wistia.com/player.js" async></script>
@@ -923,6 +931,130 @@ footer .disclaimer {
 
   #hero::after { height: 80px; }
   #hero { padding-top: 48px; }
+  .hero-video { transform: none !important; }
+  .watch-3d { font-size: 13px; letter-spacing: 2px; }
+  .btn-vsl { padding: 16px 28px; font-size: 13px; width: 100%; max-width: 340px; }
+  .mute-btn { bottom: 8px; right: 8px; }
+}
+
+/* ── REGARDER AVANT DE RÉSERVER — 3D bold ───────────────── */
+.watch-3d {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(15px, 2.2vw, 22px);
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #E8C96A;
+  text-shadow:
+    0 1px 0 #c9973a,
+    0 2px 0 #b8832e,
+    0 3px 0 #a87228,
+    0 4px 8px rgba(0,0,0,0.60),
+    0 0 24px rgba(232,201,106,0.40);
+}
+
+/* ── WISTIA — 3D + cobalt blur ───────────────────────────── */
+.hero-video {
+  position: relative;
+  transform: perspective(1000px) rotateX(3deg);
+  transform-origin: center bottom;
+  transition: transform 0.5s ease;
+}
+.hero-video:hover { transform: perspective(1000px) rotateX(0deg); }
+.hero-video::before {
+  content: '';
+  position: absolute;
+  inset: -30px -40px;
+  background:
+    radial-gradient(ellipse at 30% 60%, rgba(37,99,235,0.50) 0%, transparent 55%),
+    radial-gradient(ellipse at 70% 40%, rgba(59,130,246,0.35) 0%, transparent 50%);
+  filter: blur(35px);
+  z-index: -1;
+  border-radius: 40px;
+  pointer-events: none;
+}
+
+/* ── BOUTON MUTE ─────────────────────────────────────────── */
+.mute-btn {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  z-index: 10;
+  background: rgba(0,0,0,0.65);
+  border: 1px solid rgba(96,165,250,0.45);
+  border-radius: 50px;
+  padding: 7px 14px;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.2s, border-color 0.2s;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.mute-btn:hover { background: rgba(37,99,235,0.55); border-color: rgba(96,165,250,0.80); }
+.mute-btn svg { width: 13px; height: 13px; }
+
+/* ── BOUTON SOUS LA VSL — cobalt + or ────────────────────── */
+.btn-vsl {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 52px;
+  background: linear-gradient(135deg, #1a3a7a 0%, #2563EB 50%, #1a3a7a 100%);
+  background-size: 200% auto;
+  animation: vslBtnShift 4s linear infinite;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 50px;
+  border: 1px solid rgba(232,201,106,0.45);
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow:
+    0 0 0 1px rgba(232,201,106,0.18),
+    0 6px 28px rgba(37,99,235,0.50),
+    0 0 50px 5px rgba(232,201,106,0.12),
+    inset 0 1px 0 rgba(232,201,106,0.22);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.btn-vsl:hover {
+  transform: scale(1.04) translateY(-2px);
+  box-shadow:
+    0 0 0 1px rgba(232,201,106,0.55),
+    0 10px 36px rgba(37,99,235,0.65),
+    0 0 70px 10px rgba(232,201,106,0.22),
+    inset 0 1px 0 rgba(232,201,106,0.30);
+}
+@keyframes vslBtnShift {
+  from { background-position: 0% center; }
+  to { background-position: 200% center; }
+}
+.btn-vsl svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+/* ── VIMEO WRAPPER ───────────────────────────────────────── */
+.vimeo-wrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+}
+.vimeo-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 </style>
 </head>
@@ -948,24 +1080,32 @@ footer .disclaimer {
       <div class="hero-badge">🚨 Courtiers Immobiliers 🚨</div>
     </div>
     <h1 class="hero-heading fade-up fade-up-d1">
-      <em>Associez-vous <span class="gold">GRATUITEMENT</span> à plus de 3500 courtiers immobiliers dans le WolfPack</em>
+      <em>Associez-vous <span class="gold">GRATUITEMENT</span> à plus de 3000 courtiers immobiliers dans le Wolf Pack</em>
     </h1>
     <p class="hero-sub fade-up fade-up-d2"><em>AUCUN coût supplémentaire ni partage de commission additionnel</em></p>
 
-    <div class="hero-cta-wrap fade-up fade-up-d2">
-      <a href="https://goagentwolfpack.com/book" class="btn-cobalt"><span>📆 Réserve Ton Appel Ici</span></a>
-    </div>
-
     <div class="hero-watch-label fade-up fade-up-d3">
-      <span class="shimmer-text" style="font-weight:700; letter-spacing:3px; text-transform:uppercase; font-size:13px;">👇 Regarder Avant De Réserver 👇</span>
+      <span class="watch-3d">👇 Regarder Avant De Réserver 👇</span>
     </div>
 
-    <div class="hero-video fade-up fade-up-d4">
-      <wistia-player media-id="rvqf4iz70g" aspect="1.7777777777777777" autoplay muted></wistia-player>
+    <div class="hero-video fade-up fade-up-d4" style="position:relative;">
+      <wistia-player media-id="rvqf4iz70g" aspect="1.7777777777777777" autoplay muted id="wistia-main"></wistia-player>
+      <button class="mute-btn" id="muteBtn" onclick="toggleMute()">
+        <svg id="muteIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <line x1="23" y1="9" x2="17" y2="15"></line>
+          <line x1="17" y1="9" x2="23" y2="15"></line>
+        </svg>
+        <span id="muteLabel">Activer le son</span>
+      </button>
     </div>
 
     <div class="hero-cta-bottom fade-up" style="animation-delay:0.5s;">
-      <a href="https://goagentwolfpack.com/book" class="btn-cobalt"><span>📆 Réserve Ton Appel Ici</span></a>
+      <a href="https://goagentwolfpack.com/book" class="btn-vsl">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 3l14 9-14 9V3z"/></svg>
+        Réserve Ta Place — Gratuit
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
     </div>
   </div>
 </section>
@@ -1004,7 +1144,7 @@ footer .disclaimer {
       </div>
     </div>
     <div style="text-align:center; margin-top:48px;">
-      <a href="https://goagentwolfpack.com/book" class="btn-cobalt"><span>📆 Réserve Ton Appel</span></a>
+      <a href="https://goagentwolfpack.com/book" class="btn-cobalt"><span>🚀 Rejoindre le WolfPack — Gratuit</span></a>
     </div>
   </div>
 </section>
@@ -1120,31 +1260,39 @@ footer .disclaimer {
     <div class="video-grid">
       <div class="video-card">
         <figure>
-          <div class="video-thumb" style="background-image:url('https://img.youtube.com/vi/MYnyh8wkyR0/maxresdefault.jpg')"></div>
+          <div class="vimeo-wrap">
+            <iframe src="https://player.vimeo.com/video/1172284121?title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
         </figure>
         <p class="video-caption">Mon Témoignage Personnel</p>
       </div>
       <div class="video-card">
         <figure>
-          <div class="video-thumb" style="background-image:url('https://i.vimeocdn.com/video/1837071980-a9e866c1af3b3a34b2683b350ef0ff91a777043b9c6629991d86b6c5bdfc9127-d_1280.jpg')"></div>
+          <div class="vimeo-wrap">
+            <iframe src="https://player.vimeo.com/video/936779912?title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
         </figure>
         <p class="video-caption">L'Expérience d'un Nouveau Courtier</p>
       </div>
       <div class="video-card">
         <figure>
-          <div class="video-thumb" style="background-image:url('https://img.youtube.com/vi/pzcAx-yMot0/maxresdefault.jpg')"></div>
+          <div class="vimeo-wrap">
+            <iframe src="https://player.vimeo.com/video/1172289361?title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
         </figure>
         <p class="video-caption">Top Productrice Quitte Via Capitale Après 14 Ans</p>
       </div>
       <div class="video-card">
         <figure>
-          <div class="video-thumb" style="background-image:url('https://i.vimeocdn.com/video/1918462319-d5b2e3fae475b4e37b6dd42a9b9fc0465aba39a47800522254ce99b72490f335-d_1280.jpg')"></div>
+          <div class="vimeo-wrap">
+            <iframe src="https://player.vimeo.com/video/1002155340?title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
         </figure>
         <p class="video-caption">Anciennement Royal LePage - Plus de 6 Chiffres</p>
       </div>
     </div>
     <div style="text-align:center; margin-top:48px;">
-      <a href="https://goagentwolfpack.com/book" class="btn-cobalt"><span>📆 Réserve Ton Appel</span></a>
+      <a href="https://goagentwolfpack.com/book" class="btn-cobalt"><span>🐺 Accéder à la Communauté</span></a>
     </div>
   </div>
 </section>
@@ -1185,7 +1333,7 @@ footer .disclaimer {
       <img class="formation-img-3" src="https://assets.cdn.filesafe.space/sa0dwtpUC0WQ1kzZhjsv/media/69b1d8f057249b727843a5f7.png" alt="Master Agent">
     </div>
     <div style="text-align:center; margin-top:48px;">
-      <a href="https://goagentwolfpack.com/book" class="btn-cobalt"><span>📆 Réserve Ton Appel</span></a>
+      <a href="https://goagentwolfpack.com/book" class="btn-cobalt"><span>📈 Développer Mon Business</span></a>
     </div>
   </div>
 </section>
@@ -1236,7 +1384,7 @@ footer .disclaimer {
       </div>
     </div>
     <div style="text-align:center; margin-top:48px;">
-      <a href="https://goagentwolfpack.com/book" class="btn-cobalt"><span>📆 Réserve Ton Appel Ici</span></a>
+      <a href="https://goagentwolfpack.com/book" class="btn-cobalt"><span>📞 Parler à l'Équipe WolfPack</span></a>
     </div>
   </div>
 </section>
@@ -1248,7 +1396,7 @@ footer .disclaimer {
     <p class="cta-label">es-tu prêt à faire le saut?</p>
     <h2 class="cta-heading shimmer-text">Change le fil de ton entreprise aujourd'hui!</h2>
     <p class="cta-sub">Aucun contrat et split de commissions additionnels avec la communauté du WolfPack</p>
-    <a href="https://goagentwolfpack.com/book" class="btn-cobalt"><span>📆 Réserve Ton Appel Ici</span></a>
+    <a href="https://goagentwolfpack.com/book" class="btn-cobalt"><span>⚡ Commencer Aujourd'hui — 0$</span></a>
   </div>
 </section>
 
@@ -1260,6 +1408,32 @@ footer .disclaimer {
 </footer>
 
 <script>
+// Mute toggle for Wistia
+let isMuted = true;
+
+function toggleMute() {
+  isMuted = !isMuted;
+  const icon = document.getElementById('muteIcon');
+  const label = document.getElementById('muteLabel');
+
+  // Try all ways to reach Wistia video
+  const player = document.getElementById('wistia-main');
+  const video = player?.shadowRoot?.querySelector('video')
+              || document.querySelector('wistia-player video')
+              || document.querySelector('video');
+
+  if (video) video.muted = isMuted;
+  if (player?.muted !== undefined) player.muted = isMuted;
+
+  if (isMuted) {
+    icon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line>';
+    label.textContent = 'Activer le son';
+  } else {
+    icon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>';
+    label.textContent = 'Couper le son';
+  }
+}
+
 function toggleFaq(el) {
   const item = el.closest('.faq-item');
   const isOpen = item.classList.contains('open');
@@ -1267,7 +1441,7 @@ function toggleFaq(el) {
   if (!isOpen) item.classList.add('open');
 }
 
-// Fade-up on scroll
+// Scroll animations
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
