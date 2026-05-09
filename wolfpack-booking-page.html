@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Réserve Ton Appel — Agent WolfPack</title>
+<link rel="icon" type="image/png" href="https://assets.cdn.filesafe.space/sa0dwtpUC0WQ1kzZhjsv/media/68090d72983b2a365fbeb20f.png">
+<meta property="og:title" content="Réserve Ton Appel — Agent WolfPack">
+<meta property="og:image" content="https://assets.cdn.filesafe.space/sa0dwtpUC0WQ1kzZhjsv/media/68090d72e79dda276a8eac62.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ── RESET ───────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+a { text-decoration: none; color: inherit; }
+
+/* ── PAGE BACKGROUND ─────────────────────────────────────── */
+.page-bg {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(59,130,246,0.20) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(232,201,106,0.16) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 10%, rgba(59,130,246,0.12) 0%, transparent 45%),
+    #040812;
+  z-index: 0;
+}
+
+/* Grid */
+.page-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(232,201,106,0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59,130,246,0.08) 1px, transparent 1px);
+  background-size: 52px 52px;
+}
+
+/* ── LAYOUT ──────────────────────────────────────────────── */
+.page-wrap {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── NAV ─────────────────────────────────────────────────── */
+nav {
+  background: rgba(4,5,8,0.80);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(232,201,106,0.14);
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav img {
+  height: 44px;
+  width: auto;
+  filter: drop-shadow(0 0 8px rgba(232,201,106,0.45));
+}
+
+/* ── MAIN ────────────────────────────────────────────────── */
+main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 60px 32px;
+  align-items: start;
+}
+
+/* ── LEFT PANEL ──────────────────────────────────────────── */
+.left-panel {
+  padding-right: 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  position: sticky;
+  top: 40px;
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(37,99,235,0.12);
+  border: 1px solid rgba(96,165,250,0.30);
+  border-radius: 50px;
+  padding: 8px 18px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(96,165,250,0.85);
+  width: fit-content;
+}
+
+/* Main heading */
+.left-heading {
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+
+.left-heading .gold {
+  background: linear-gradient(180deg, #F5E199 0%, #E8C96A 20%, #C9973A 45%, #E8C96A 60%, #F5E199 75%, #C9973A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 8px rgba(232,201,106,0.35));
+}
+
+/* Subtext */
+.left-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.60);
+  line-height: 1.75;
+}
+
+/* Info pills */
+.info-pills {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.info-pill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(59,130,246,0.05);
+  border: 1px solid rgba(59,130,246,0.18);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.80);
+  font-weight: 500;
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.info-pill:hover {
+  border-color: rgba(96,165,250,0.40);
+  background: rgba(59,130,246,0.09);
+}
+
+.pill-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  background: rgba(59,130,246,0.12);
+}
+
+/* Bullets */
+.bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.5;
+}
+
+.bullet-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(232,201,106,0.12);
+  border: 1px solid rgba(232,201,106,0.30);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #E8C96A;
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(232,201,106,0.25), transparent);
+}
+
+/* Avatars */
+.avatars-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatars {
+  display: flex;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid rgba(59,130,246,0.40);
+  overflow: hidden;
+  margin-left: -10px;
+  background: #0C1628;
+}
+
+.avatar:first-child { margin-left: 0; }
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatars-text {
+  font-size: 13px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.4;
+}
+
+.avatars-text strong {
+  color: #E8C96A;
+  display: block;
+  font-size: 15px;
+}
+
+/* ── RIGHT PANEL — CALENDRIER ─────────────────────────────── */
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.calendar-card {
+  position: relative;
+  background: linear-gradient(160deg, #060D1A 0%, #0C1628 50%, #060D1A 100%);
+  border: 1px solid rgba(59,130,246,0.28);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(59,130,246,0.08),
+    0 30px 80px rgba(0,0,0,0.65),
+    inset 0 1px 0 rgba(96,165,250,0.08);
+}
+
+/* Grille intérieure */
+.calendar-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(59,130,246,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232,201,106,0.04) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 85% 85% at 50% 30%, black 0%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 85% at 50% 30%, black 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Glow blob derrière la carte */
+.calendar-card::after {
+  content: '';
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 200px;
+  background:
+    radial-gradient(ellipse at 35% 50%, rgba(59,130,246,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse at 65% 50%, rgba(232,201,106,0.12) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.calendar-header {
+  position: relative;
+  z-index: 1;
+  padding: 24px 28px 16px;
+  border-bottom: 1px solid rgba(59,130,246,0.12);
+}
+
+.calendar-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: rgba(96,165,250,0.80);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.calendar-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.calendar-duration {
+  font-size: 13px;
+  color: rgba(255,255,255,0.50);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.calendar-body {
+  position: relative;
+  z-index: 1;
+  padding: 0;
+}
+
+/* L'iframe GHL */
+.calendar-body iframe {
+  width: 100%;
+  min-height: 700px;
+  border: none;
+  display: block;
+  background: transparent;
+}
+
+/* ── FOOTER ──────────────────────────────────────────────── */
+footer {
+  border-top: 1px solid rgba(232,201,106,0.10);
+  padding: 28px 32px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+footer p {
+  font-size: 11px;
+  color: rgba(255,255,255,0.22);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+footer .disclaimer {
+  font-size: 10px;
+  color: rgba(255,255,255,0.12);
+  text-transform: none;
+  letter-spacing: 0;
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ── FADE IN ─────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.left-panel > * {
+  animation: fadeUp 0.6s ease both;
+}
+.left-panel > *:nth-child(1) { animation-delay: 0.05s; }
+.left-panel > *:nth-child(2) { animation-delay: 0.12s; }
+.left-panel > *:nth-child(3) { animation-delay: 0.18s; }
+.left-panel > *:nth-child(4) { animation-delay: 0.24s; }
+.left-panel > *:nth-child(5) { animation-delay: 0.30s; }
+.left-panel > *:nth-child(6) { animation-delay: 0.36s; }
+.left-panel > *:nth-child(7) { animation-delay: 0.42s; }
+
+.right-panel {
+  animation: fadeUp 0.6s ease 0.20s both;
+}
+
+/* ── MOBILE ──────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  main {
+    grid-template-columns: 1fr;
+    padding: 32px 16px;
+    gap: 40px;
+  }
+
+  .left-panel {
+    padding-right: 0;
+    position: static;
+    gap: 24px;
+  }
+
+  .left-heading { font-size: 26px; }
+
+  nav { padding: 12px 20px; }
+  nav img { height: 36px; }
+
+  .calendar-header { padding: 20px 20px 14px; }
+  .calendar-body iframe { min-height: 600px; }
+}
+</style>
+</head>
+<body>
+
+<!-- FOND -->
+<div class="page-bg"></div>
+
+<div class="page-wrap">
+
+  <!-- NAV -->
+  <nav>
+    <a href="https://goagentwolfpack.com">
+      <img src="https://assets.cdn.filesafe.space/sa0dwtpUC0WQ1kzZhjsv/media/68090d72e79dda276a8eac62.png" alt="Agent WolfPack">
+    </a>
+  </nav>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- PANNEAU GAUCHE -->
+    <div class="left-panel">
+
+      <div class="badge">
+        🐺 Étape finale
+      </div>
+
+      <h1 class="left-heading">
+        Choisis ton créneau<br>
+        <span class="gold">et rejoins le WolfPack</span>
+      </h1>
+
+      <p class="left-sub">
+        Réserve un appel de 45 minutes avec Emile. On va faire le point sur ta situation, répondre à toutes tes questions et voir si le WolfPack est le bon fit pour toi.
+      </p>
+
+      <div class="divider"></div>
+
+      <div class="info-pills">
+        <div class="info-pill">
+          <div class="pill-icon">⏱️</div>
+          <span>Appel de <strong>45 minutes</strong> — sans pression</span>
+        </div>
+        <div class="info-pill">
+          <div class="pill-icon">💬</div>
+          <span>Discussion sur ta vision, tes objectifs et tes questions</span>
+        </div>
+        <div class="info-pill">
+          <div class="pill-icon">🆓</div>
+          <span>Aucun frais supplémentaire pour rejoindre le WolfPack</span>
+        </div>
+        <div class="info-pill">
+          <div class="pill-icon">🌐</div>
+          <span>Appel Zoom — accessible partout au Québec et au Canada</span>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="bullets">
+        <div class="bullet">
+          <div class="bullet-dot">✓</div>
+          <span>Accès immédiat à la formation Social Agent Academy Pro (114k+ abonnés)</span>
+        </div>
+        <div class="bullet">
+          <div class="bullet-dot">✓</div>
+          <span>Communauté de 3000+ courtiers WolfPack — sans split additionnel</span>
+        </div>
+        <div class="bullet">
+          <div class="bullet-dot">✓</div>
+          <span>Accès aux outils, systèmes et stratégies qui génèrent des leads en ligne</span>
+        </div>
+        <div class="bullet">
+          <div class="bullet-dot">✓</div>
+          <span>Support personnalisé d'Emile, Mathieu, Mike et Sebastien</span>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="avatars-row">
+        <div class="avatars">
+          <div class="avatar">
+            <img src="https://assets.cdn.filesafe.space/sa0dwtpUC0WQ1kzZhjsv/media/69212058090c4a84201c4653.png" alt="Emile">
+          </div>
+          <div class="avatar">
+            <img src="https://assets.cdn.filesafe.space/sa0dwtpUC0WQ1kzZhjsv/media/68c7783f34fadb160c4e9387.webp" alt="Mathieu">
+          </div>
+          <div class="avatar">
+            <img src="https://assets.cdn.filesafe.space/sa0dwtpUC0WQ1kzZhjsv/media/692251a36652aa4f2af22dce.webp" alt="Mike">
+          </div>
+          <div class="avatar">
+            <img src="https://assets.cdn.filesafe.space/sa0dwtpUC0WQ1kzZhjsv/media/69dd69cee34cc263fb7ffbe7.png" alt="Sebastien">
+          </div>
+        </div>
+        <div class="avatars-text">
+          <strong>+3 000 courtiers</strong>
+          font déjà partie du WolfPack
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PANNEAU DROIT — CALENDRIER -->
+    <div class="right-panel">
+      <div class="calendar-card">
+        <div class="calendar-header">
+          <span class="calendar-label">Rencontre</span>
+          <div class="calendar-title">Découvrir eXp Realty avec Emile</div>
+          <div class="calendar-duration">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(96,165,250,0.70)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            45 min · Zoom
+          </div>
+        </div>
+        <div class="calendar-body">
+          <iframe src="https://api.leadconnectorhq.com/widget/booking/gemdBNf4ole35vONCB81" scrolling="no" id="gemdBNf4ole35vONCB81_1778276190522"></iframe>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Copyright © 2026 | Agent WolfPack | eXp Realty</p>
+    <p class="disclaimer">PAS AFFILIÉ À FACEBOOK™ : Ce site n'est pas associé au site web Facebook™ ni à Facebook Inc. FACEBOOK™ est une marque déposée de FACEBOOK™, Inc.</p>
+  </footer>
+
+</div>
+
+<!-- GHL Booking Script -->
+<script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+
+</body>
+</html>
